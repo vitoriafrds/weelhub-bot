@@ -101,7 +101,7 @@ def validate_checkin(driver: Chrome):
         go_back_to_classes_modal(driver)
 
 if __name__ == "__main__":
-    dias_semana_pt = {
+     week_day_code = {
         0: "segunda-feira",
         1: "terça-feira",
         2: "quarta-feira",
@@ -111,7 +111,7 @@ if __name__ == "__main__":
 
     classes_of_the_day = []
     current_day = datetime.date(2025, 6, 4)
-    current_weekday_name = dias_semana_pt[current_day.weekday()]
+    current_weekday_name =  week_day_code[current_day.weekday()]
     
     logging.info(f'Iniciando processo de validação dos checkins das turmas de: {current_weekday_name}')
 

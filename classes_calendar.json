@@ -1,5 +1,5 @@
 {
-  "segunda-feira": [
+  "seg": [
     "joga-miga-pompeia",
     "joga-miga-vila-prudente",
     "joga-miga-paraiso-vila-mariana",
@@ -8,25 +8,25 @@
     "joga-miga-jundiai-vila-das-hortencias",
     "joga-miga-belem"
   ],
-  "terça-feira": [
+  "ter": [
     "joga-miga-pompeia",
     "joga-miga-vila-prudente",
     "joga-miga-salvador-pituacu"
   ],
-  "quarta-feira": [
+  "qua": [
     "joga-miga-osasco",
     "joga-miga-belem",
     "joga-miga-vila-prudente",
     "joga-miga-morumbi-instituto-de-previdencia",
     "joga-miga-vila-sonia-jardim-frei-galvao"
   ],
-  "quinta-feira": [
+  "qui": [
     "joga-miga-pompeia",
     "joga-miga-vila-prudente",
     "joga-miga-santo-andre-campestre",
     "joga-miga-alphaville-alphaville-industrial"
   ],
-  "sabado": [
+  "sab": [
     "joga-miga-pompeia"
   ]
 }

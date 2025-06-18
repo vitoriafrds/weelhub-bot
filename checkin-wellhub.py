@@ -68,6 +68,7 @@ def go_back_to_classes_modal(driver: Chrome):
 
 def check_for_ghost_checkin(driver: Chrome):
     logging.info("Validando se existe o checkin de onboarding da jornada de validação...")
+    time.sleep(5)
     checkin_fantasma = driver.find_elements(By.CSS_SELECTOR, "#react-joyride-step-0 > div > div > div > div:nth-child(2) > div > button")
 
     if checkin_fantasma:
@@ -87,11 +88,11 @@ def validate_checkin(driver: Chrome):
         for botao in botoes:
             try:
                 driver.execute_script("arguments[0].scrollIntoView(true);", botao)
-                
+                logging.info("Checking encontrado...")
                 wait.until(EC.element_to_be_clickable(botao))
                 botao.click()
 
-                logging.info("Todos os checkins encontrados foram validados com sucesso.")
+                logging.info("Checkins validados com sucesso")
                 go_back_to_classes_modal(driver)
             except Exception as e:
                 logging.error(f"Ocorreu um erro inesperado na tentativa de validar o checkin: {str(e)}")
@@ -101,17 +102,17 @@ def validate_checkin(driver: Chrome):
         go_back_to_classes_modal(driver)
 
 if __name__ == "__main__":
-     week_day_code = {
-        0: "segunda-feira",
-        1: "terça-feira",
-        2: "quarta-feira",
-        3: "quinta-feira",
-        5: "sábado"
+    week_days = {
+        0: "seg",
+        1: "ter",
+        2: "qua",
+        3: "qui",
+        5: "sab"
     }
 
     classes_of_the_day = []
-    current_day = datetime.date(2025, 6, 4)
-    current_weekday_name =  week_day_code[current_day.weekday()]
+    week_day_code = datetime.date.today().weekday()
+    current_weekday_name = week_days[week_day_code]
     
     logging.info(f'Iniciando processo de validação dos checkins das turmas de: {current_weekday_name}')
 
@@ -120,10 +121,7 @@ if __name__ == "__main__":
         turmas = data.get(current_weekday_name.lower(), [])
         classes_of_the_day.extend(turmas)
 
-    options = Options()
-    #options.add_argument("--headless")
-    #options.add_argument("--no-sandbox")
-    #options.add_argument("--disable-dev-shm-usage")     
+    options = Options()  
     options.add_argument("--start-maximized")
 
     driver = webdriver.Chrome(options=options)
